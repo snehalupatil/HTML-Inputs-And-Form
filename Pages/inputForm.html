@@ -89,6 +89,16 @@
 
         });
 
+        //UC4 pwd Rule 1 minimum 8 char
+        const password = document.querySelector('#pwd');
+        const passwordError = document.querySelector('.pwd-error');
+        password.addEventListener('input', function(){
+            let pwdRegex = RegExp('^[a-zA-z]{8,}$');
+            if(pwdRegex.test(password.value))
+                passwordError.textContent="";
+            else passwordError.textContent="Password is invalid";
+        });
+
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
         output.textContent = salary.value;
