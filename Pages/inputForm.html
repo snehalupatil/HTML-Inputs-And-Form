@@ -88,8 +88,8 @@
             else telError.textContent="Mobile Number is invalid"
 
         });
-
-        //UC4 pwd Rule 1 minimum 8 char
+        /*
+        //passward Rule 1 minimum 8 char
         const password = document.querySelector('#pwd');
         const passwordError = document.querySelector('.pwd-error');
         password.addEventListener('input', function(){
@@ -98,6 +98,18 @@
                 passwordError.textContent="";
             else passwordError.textContent="Password is invalid";
         });
+        */
+
+        //password Rule2 min 8 chars, 1 upper case, 1 num, 1 special char
+         const password = document.querySelector('#pwd');
+        const passwordError = document.querySelector('.pwd-error');
+        password.addEventListener('input', function(){
+            let pwdRegex = RegExp('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$');
+            if(pwdRegex.test(password.value))
+                passwordError.textContent="";
+            else passwordError.textContent="Password is invalid";
+        });
+
 
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
